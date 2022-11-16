@@ -1,6 +1,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, {  useLayoutEffect, useRef } from 'react'
+import img1 from '../assets/Images/1.webp';
 // import { Left, Right, ScrollSection, Title } from './elements'
 
 import styled from "styled-components";
@@ -66,6 +67,33 @@ h1
 }
 `
 
+const Item = styled.div`
+display: inline-block;
+width: 20rem;
+margin-right: 6rem;
+
+img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+h1 
+{
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+`
+const Product = ({img, title = ''}) => {
+    return(
+        <Item>
+            <img src={img} alt={title} />
+            <h1>{title}</h1>
+        </Item>
+    )
+}
+
 const ServicesScroll = () => {
 
 gsap.registerPlugin(ScrollTrigger);
@@ -73,6 +101,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ref = useRef(null)
 const horizontalRef = useRef(null)
 
+let arr=[1,2,3,4,6,7]
 
 useLayoutEffect(() => {
  let element = ref.current;
@@ -144,23 +173,13 @@ useLayoutEffect(() => {
         </Left>
 
         <Right ref={horizontalRef}>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
-            <h1>img</h1>
+            {arr.map(()=>
+            (
+<Product img={img1} title="xyz" />
+            ))}
+          
+          
+
            
         </Right>
      
